@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Nazwa produktu</th>
+        <th>Cena</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="p: ${productsList}">
+        <td th:text="${p.name}">Nazwa produktu</td>
+        <td th:text="|${#numbers.formatDecimal(p.price, 0 , 2)}zł|">Cena produktu</td>
+    </tr>
+    <tr>
+
+        <td style="background-color: cornsilk">Suma:</td>
+        <td style="color: red"   th:text="|${#numbers.formatDecimal(priceSum, 0 , 2)}zł|"></td>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
